@@ -128,6 +128,18 @@ $filename = preg_replace('@[^0-9a-z._-]@i', '', $filename);
 $target = $MediaRoot . '/' . $filename;
 
 /**
+ * If a file with the same name and size exists, treat the new upload as a
+ * duplicate and exit.
+ */
+if (
+    file_exists($target) &&
+    filesize() === $_POST['filesize']
+) {
+    header($protocol . ' 409 Conflict');
+    exit();
+}
+
+/**
  * Move the uploaded file into the target directory. If anything did not work,
  * exit with HTTP code 500.
  */
