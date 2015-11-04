@@ -59,15 +59,19 @@ if (empty($_POST) && !$testing) {
 
 /**
  * Double check if a password has been configured. If there has not and we are
- * testing the server, exit with HTTP code 401. Otherwise treat it as an empty
- * string.
+ * testing the server, exit with HTTP code 401.
  */
-if (!isset($Password) || !is_string($Password)) {
+if (
+    $testing &&
+    (
+        !isset($Password) ||
+        !is_string($Password)
+    )
+) {
     if ($testing) {
         header($protocol . ' 401 Unauthorized');
         exit();
     }
-    $Password = '';
 }
 
 /**
@@ -75,6 +79,7 @@ if (!isset($Password) || !is_string($Password)) {
  * match this server's password, exit with HTTP code 403.
  */
 if (
+    !isset($Password) ||
     !isset($_POST['password']) ||
     $_POST['password'] !== hash('sha512', $Password)
 ) {
