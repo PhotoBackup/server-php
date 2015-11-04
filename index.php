@@ -2,7 +2,7 @@
 /**
  * A minimal PhotoBackup API endpoint developed in PHP.
  *
- * @version 1.0.0-rc.1
+ * @version 1.0.0-rc.2
  * @author Martijn van der Ven <martijn@zegnat.net>
  * @copyright 2015 Martijn van der Ven
  * @license http://opensource.org/licenses/MIT The MIT License

@@ -2,7 +2,7 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
-## [Unreleased]
+## [1.0.0-rc.2] - 2015-11-04
 ### Added
 - This CHANGELOG file.
 - Handle misconfigured password and destination folder.
@@ -16,4 +16,4 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 - The server implementation all packed in a single file.
 - Documentation to help people get started.
 
-[Unreleased]: https://github.com/PhotoBackup/server-php/compare/v1.0.0-rc.1...HEAD
+[1.0.0-rc.2]: https://github.com/PhotoBackup/server-php/compare/v1.0.0-rc.1...v1.0.0-rc.2
