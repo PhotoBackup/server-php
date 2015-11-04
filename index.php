@@ -58,6 +58,19 @@ if (empty($_POST) && !$testing) {
 }
 
 /**
+ * Double check if a password has been configured. If there has not and we are
+ * testing the server, exit with HTTP code 401. Otherwise treat it as an empty
+ * string.
+ */
+if (!isset($Password) || !is_string($Password)) {
+    if ($testing) {
+        header($protocol . ' 401 Unauthorized');
+        exit();
+    }
+    $Password = '';
+}
+
+/**
  * If the client did not submit a password, or the submitted password did not
  * match this server's password, exit with HTTP code 403.
  */
@@ -70,10 +83,12 @@ if (
 }
 
 /**
- * If the upload destination folder does not exist or is not writable by PHP,
- * exit with HTTP code 500.
+ * If the upload destination folder has not been configured, does not exist, or
+ * is not writable by PHP, exit with HTTP code 500.
  */
 if (
+    !isset($MediaRoot) ||
+    !is_string($MediaRoot) ||
     !file_exists($MediaRoot) ||
     !is_dir($MediaRoot) ||
     !is_writable($MediaRoot)

@@ -5,6 +5,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ## [Unreleased]
 ### Added
 - This CHANGELOG file.
+- Handle misconfigured password and destination folder.
 
 ### Changed
 - Handle duplicate files in the same way as the Python implementation, adding
