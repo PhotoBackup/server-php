@@ -1,0 +1,17 @@
+{
+    "name": "photo-backup/server",
+    "description": "The PHP PhotoBackup server implementation",
+    "license": "mit",
+    "authors": [
+        {
+            "name": "Martijn van der Ven",
+            "email": "martijn@zegnat.net"
+        }
+    ],
+    "require": {
+        "php": ">=5.4"
+    },
+    "autoload": {
+        "psr-4": { "PhotoBackup\\": "class/" }
+    }
+}
